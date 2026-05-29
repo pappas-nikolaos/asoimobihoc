@@ -1,136 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
-    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-73203G9R70"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-73203G9R70');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age and Semantics of Information Workshop</title>
-    <style>
-        body {
-            margin: 10%; /* Increase the margin for more space */
-        }
-        /* Add any additional CSS styles here */
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beyond Age of Information: Semantics and Goal-oriented Communication Workshop</title>
+  <style>
+    :root {
+      /* MobiHoc 2026-inspired color profile */
+      --mobihoc-navy: #243a5e;
+      --mobihoc-dark-navy: #162842;
+      --mobihoc-blue: #3f658d;
+      --mobihoc-light-blue: #dfe8f5;
+      --mobihoc-pale-blue: #f3f7fc;
+      --mobihoc-accent-red: #b64232;
+      --mobihoc-sakura: #d77c9d;
+      --mobihoc-text: #222831;
+      --mobihoc-muted: #5f6b7a;
+      --mobihoc-border: #cfd8e6;
+      --white: #ffffff;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.62;
+      color: var(--mobihoc-text);
+      background: var(--white);
+    }
+    a {
+      color: var(--mobihoc-blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover {
+      color: var(--mobihoc-accent-red);
+      text-decoration: underline;
+    }
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      background: var(--white);
+    }
+    .topbar {
+      background: var(--mobihoc-dark-navy);
+      color: var(--white);
+      font-size: 14px;
+    }
+    .topbar-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 8px 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .topbar a {
+      color: var(--white);
+    }
+    .banner {
+      width: 100%;
+      display: block;
+      border-bottom: 5px solid var(--mobihoc-navy);
+    }
+    header {
+      background: linear-gradient(180deg, var(--mobihoc-light-blue), var(--white));
+      padding: 28px 24px 22px;
+      text-align: center;
+      border-bottom: 1px solid var(--mobihoc-border);
+    }
+    h1 {
+      margin: 0 auto 10px;
+      max-width: 920px;
+      color: var(--mobihoc-navy);
+      font-size: 32px;
+      line-height: 1.22;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      margin: 0 auto 16px;
+      color: var(--mobihoc-dark-navy);
+      font-size: 19px;
+      font-weight: 600;
+    }
+    .event-meta {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 20px;
+      border: 1px solid var(--mobihoc-border);
+      background: var(--white);
+      color: var(--mobihoc-dark-navy);
+      font-size: 17px;
+      border-radius: 4px;
+    }
+    .event-meta strong {
+      color: var(--mobihoc-navy);
+    }
+    nav {
+      background: var(--mobihoc-navy);
+      border-bottom: 4px solid var(--mobihoc-blue);
+    }
+    nav .nav-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 12px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      display: block;
+      padding: 13px 15px;
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background: var(--mobihoc-blue);
+      color: var(--white);
+      text-decoration: none;
+    }
+    main {
+      padding: 8px 24px 42px;
+    }
+    section {
+      margin-top: 34px;
+    }
+    h2 {
+      margin: 0 0 16px;
+      padding-bottom: 6px;
+      color: var(--mobihoc-navy);
+      font-size: 24px;
+      line-height: 1.25;
+      border-bottom: 3px solid var(--mobihoc-light-blue);
+    }
+    h3 {
+      margin: 18px 0 6px;
+      color: var(--mobihoc-dark-navy);
+      font-size: 18px;
+    }
+    p {
+      margin: 0 0 15px;
+    }
+    ul {
+      padding-left: 26px;
+      margin-top: 8px;
+    }
+    li {
+      margin-bottom: 7px;
+    }
+    .notice {
+      margin: 24px 0 10px;
+      padding: 16px 18px;
+      background: var(--mobihoc-pale-blue);
+      border-left: 6px solid var(--mobihoc-navy);
+      border-radius: 2px;
+    }
+    .notice strong {
+      color: var(--mobihoc-navy);
+    }
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .box {
+      background: var(--mobihoc-pale-blue);
+      border: 1px solid var(--mobihoc-border);
+      padding: 18px 20px;
+      border-radius: 3px;
+    }
+    .box h3 {
+      margin-top: 0;
+    }
+    .topics {
+      columns: 2;
+      column-gap: 34px;
+    }
+    .topics li {
+      break-inside: avoid;
+      margin-bottom: 9px;
+    }
+    .chairs {
+      list-style: none;
+      padding-left: 0;
+    }
+    .chairs li {
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      background: var(--mobihoc-pale-blue);
+      border-left: 5px solid var(--mobihoc-blue);
+      border-radius: 2px;
+    }
+    .chairs strong {
+      color: var(--mobihoc-navy);
+      font-size: 17px;
+    }
+    .dates {
+      list-style: none;
+      padding-left: 0;
+      max-width: 760px;
+    }
+    .dates li {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      border: 1px solid var(--mobihoc-border);
+      background: var(--white);
+    }
+    .dates strong {
+      color: var(--mobihoc-navy);
+    }
+    .dates span {
+      text-align: right;
+      color: var(--mobihoc-dark-navy);
+      font-weight: 700;
+    }
+    .program-placeholder {
+      background: #fafafa;
+      border: 1px solid var(--mobihoc-border);
+      padding: 16px 18px;
+      border-radius: 3px;
+    }
+    .small-note {
+      color: var(--mobihoc-muted);
+      font-size: 14px;
+    }
+    footer {
+      margin-top: 34px;
+      padding: 24px;
+      color: var(--white);
+      background: var(--mobihoc-dark-navy);
+      text-align: center;
+      font-size: 14px;
+      border-top: 5px solid var(--mobihoc-blue);
+    }
+    footer a {
+      color: var(--white);
+    }
+    @media (max-width: 760px) {
+      h1 {
+        font-size: 25px;
+      }
+      .subtitle {
+        font-size: 17px;
+      }
+      main {
+        padding: 8px 16px 36px;
+      }
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+      .topics {
+        columns: 1;
+      }
+      .dates li {
+        grid-template-columns: 1fr;
+      }
+      .dates span {
+        text-align: left;
+      }
+      nav a {
+        padding: 11px 12px;
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Figure at the front -->
-    <div style="display: grid; place-items: center;">
-        <img src="mobihoc2024.png" alt="centered image" width=100%>
-        <!-- Replace "image.jpg" with the actual path to your image -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div>ACM MobiHoc 2026 Workshop</div>
+      <div>
+        <a href="https://www.sigmobile.org/mobihoc/2026/">ACM MobiHoc 2026</a>
+      </div>
     </div>
-
-    <!-- Conference title and description -->
-    <!-- color : #3da9d8 -->
-    <div style="text-align: center;">
-        <h1 style="color:#4682B4;">Age and Semantics of Information Workshop</h1>
-    </div>
-    <div style="text-align: justify;">
-        <p>Age and Semantics of Information are of fundamental importance to next-generation communication systems. 
-            Age of Information (AoI) is an end-to-end metric that can capture one semantic property known as timeliness or 
-            freshness of information, which is important for information-update and data analytics applications (e.g., crowdsourcing, 
-            financial trading, social networks, and online learning), as well as networked monitoring and control systems 
-            (e.g., sensor networks, airplane/vehicular control, robotics networks, Internet of Things, and Cyber-Physical Systems). 
-            Semantics of Information (SoI) captures properties of information such as relevance and importance that relate to the “goal” 
-            and “purpose” of information, which is also meant to improve the performance of systems that utilize the information. 
-            Recent research advances on the Age of Information suggest that many well-known design principles (e.g., for providing high 
-            throughput and low delay) that lead to the success of traditional data networks are inappropriate and need to be re-examined 
-            for enhancing information freshness in the rapidly emerging real-time applications. In the meantime, the paradigm shift to 
-            Semantics of Information toward 6G communications systems is expected to create systems that generate, process, and transmit only 
-            a small fraction of information, which will consume less energy and channel resources without sacrificing their effectiveness. 
-            Therefore, the Age and Semantics of Information (ASoI) Workshop will provide a forum where researchers and technical experts 
-            can share the latest research insights, present key, and emerging results on the Age and Semantics of Information, and identify 
-            new challenges and opportunities.</p>
-    </div>
-
-    <!-- List of possible topics -->
-    <!-- <h2>Possible Topics</h2> -->
-    Topics of interest include, but are not limited to:
-    <ul>
-        <li>Semantics of Information and Task/Goal-oriented Communications</li>
-        <li>Information-theoretic Limits and Interpretations of Age of Information and Semantics of Information</li>
-        <li>Source and Channel Coding for Age of Information and Semantic Communications</li>
-        <li>Random Access and Gossiping Protocols for Age of Information and Semantic Communications</li>
-        <li>Freshness and Semantics of Information in Real-time Learning, Estimation, Computation, and Control</li>
-        <li>Networking Aspects and Protocols for Age of Information and Semantic Communications</li>
-        <li>Resource Allocation and Management for Age of Information and Semantic Communications</li>
-        <li>Modeling and Performance Analysis for Age of Information and Semantic Communications</li>
-        <li>ML/AI Techniques for Semantic and Task/Goal-oriented Communications</li>
-        <!-- Add more topics as needed -->
-    </ul>
-    <!-- <div style="text-align: justify;">
-    <p>The workshop encourages the submission of original research 
-        papers as well as invited papers. The expected audience 
-        includes researchers, engineers, and practitioners from 
-        academia, industry, and government agencies, who are 
-        interested in exploring the potential of machine learning 
-        in advancing the state-of-the-art in wireless communications. 
-        The workshop will feature keynote talks, technical sessions, 
-        and panel discussions, providing ample opportunities for 
-        participants to exchange ideas and interact with each other.</p>
-    </div> -->
-<!-- Workshop Organizers -->
-    <h2 style="color:#4682B4;">Workshop Co-chairs</h2>
-    <ul>
-        <li> <b>Nikolaos Pappas</b>, Department of Computer and Information Science, Linköping University, Sweden</li>
-        <li> <b>Yin Sun</b>, Department of Electrical and Computer Engineering at Auburn University, Alabama, USA</li>
-        <li> <b>Anthony Ephremides</b>, Electrical Engineering Department, University of Maryland, College Park, USA</li>
-    </ul>
-    <!-- Event Schedule -->
-    <h2 style="color:#4682B4;">Program of the workshop</h2>
-    The workshop will be held on <b>Oct 14, 2024</b> at the <a href="https://www.titania.gr/">Titania Hotel Athens.</a>
-    <ul>
-        <li><b>8:30 - 8:40:</b> Opening and a short introduction about semantics N. Pappas, A. Ephremides</li>
-        <li><b>8:40 - 9:00:</b> <em>Minimizing the Age of Missed and False Alarms in Remote Estimation of Markov Sources</em>,
-            J. Luo, N. Pappas</li>
-        <li><b>9:00 - 9:20:</b> <em>Modeling Interfering Sources in Shared Queues for Timely Computations in Edge Computing Systems</em>, 
-                N. Akar, M. Bastopcu, S. Ulukus, T. Başar</li>
-        <li><b>9:20 - 9:40:</b> <em>Age of Channel State Information for Collaborative Beamforming</em>, 
-            M. Lipski, C. Kam, S. Kompella, T. Ephremides</li>
-        <li><b>9:40 - 10:00:</b> <em>Enhancing the Cross-layer Operation in Wireless Energy-Harvesting Networks with Age-of-Information Features</em>, 
-            G. Kallitsis, E. Stai, V. Karyotis, S. Papavassiliou</li>
-             <li><b>10:00 - 10:30:</b> Coffee break</li>
-        <li><b>10:30 - 10:50:</b> <em>CAFe: Cost and Age aware Federated Learning</em>,
-            S. Liyanaarachchi, K. Thilakarathna, S. Ulukus</li>
-        <li><b>10:50 - 11:10</b> <em>Variable-Length Stop-Feedback Coding for Minimum Age of Incorrect Information</em>,
-            K. Bountrogiannis, I. Papoutsidakis, A. Ephremides, P. Tsakalides, G. Tzagkarakis</li>
-        <li><b>11:10 - 11:30:</b> <em>Multiple Gradient Descent-based Reinforcement Learning for Multi-Task Semantic Broadcast Communication</em>, 
-            Z. Lu, R. Li, Z. Zhao, J. Liu, M. Lei, H. Zhang</li>
-        <li><b>11:30 - 11:50:</b> <em>ZeroTKS: Zero-trust Knowledge Synchronization via Federated Fine-tuning for Secure Semantic Communications</em>,
-            L. Li, G. Li, S. Li, R. Xu, J. Li</li>
-        <li><b>11:50 - 12:00:</b> Closing remarks.</li>
-    </ul>
-
-    <!-- Deadlines -->
-    <h2 style="color:#4682B4;">Important Dates</h2>
-    <ul>
-        <li><del>Paper Submission Deadline:  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp<b>July 31st, 2024</b></del></li>
-        <li><del>Notification of Acceptance: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp  August 20th, 2024</del></li>
-        <li><del>Camera Ready: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp August 30th, 2024</del></li>
-        <li>Workshop Event: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp October 14, 2024</li>
-    </ul>
-    
-    <!-- Submission Guidelines -->
-    <h2 style="color:#4682B4;">Submission Guidelines</h2>
-    <p>Information to authors: <a href="https://www.sigmobile.org/mobihoc/2024/">mobihoc2024.</a></p>
-    <div style="text-align: justify;">
-        <p>Papers should <b>NOT</b> exceed <b>6</b> pages (US letter size) double column including figures, tables, 
-            and references in standard ACM format. Papers must be submitted electronically in printable 
-            PDF form via the <a href="https://mobihoc24-asoi.hotcrp.com/">HotCRP submissing website</a>. Templates for the standard ACM format can be found at <a href="https://www.acm.org/publications/proceedings-template/">this link</a>.</p>
-    </div>
-
-    <!-- Footer --> 
+  </div>
+  <div class="page">
+    <img
+      src="https://www.sigmobile.org/mobihoc/2026/assets/mobihoc-2019-0c3c8950bfca5acf1448d845f007622a3d0ec12011ce2dfd926156a45ab0c268.jpg"
+      alt="ACM MobiHoc 2026 banner, Tokyo, Japan"
+      class="banner"
+    >
+    <header>
+      <h1>Beyond Age of Information: Semantics and Goal-oriented Communication</h1>
+      <div class="subtitle">
+        ACM MobiHoc 2026 Workshop
+      </div>
+      <div class="event-meta">
+        <strong>Date:</strong> November 26, 2026 &nbsp; | &nbsp;
+        <strong>Location:</strong> Tokyo, Japan
+      </div>
+    </header>
+    <nav aria-label="Workshop navigation">
+      <div class="nav-inner">
+        <a href="#scope">Scope</a>
+        <a href="#topics">Topics</a>
+        <a href="#chairs">Chairs</a>
+        <a href="#program">Program</a>
+        <a href="#dates">Dates</a>
+        <a href="#submission">Submission</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+    <main>
+      <section id="scope">
+        <h2>Scope of the Workshop</h2>
+        <p>
+          Age and Semantics of Information are of fundamental importance to next-generation
+          communication systems. Age of Information (AoI) is an end-to-end metric that can
+          capture one semantic property known as timeliness or freshness of information,
+          which is important for information-update and data analytics applications such as
+          crowdsourcing, financial trading, social networks, and online learning, as well as
+          networked monitoring and control systems such as sensor networks, vehicular control,
+          robotics networks, the Internet of Things, and cyber-physical systems.
+        </p>
+        <p>
+          Semantics of Information (SoI) captures properties of information such as relevance
+          and importance that relate to the goal and purpose of information transmission.
+          These properties are intended to improve the performance of systems that utilize
+          the transmitted information.
+        </p>
+        <p>
+          Recent research advances on the Age of Information suggest that many well-known
+          design principles, such as those targeting high throughput and low delay, may be
+          inappropriate and need to be re-examined for enhancing information freshness in
+          rapidly emerging real-time applications. At the same time, the paradigm shift toward
+          semantic communication in 6G systems is expected to create systems that generate,
+          process, and transmit only a small fraction of information, consuming less energy
+          and fewer channel resources without sacrificing effectiveness.
+        </p>
+      </section>
+      <section id="topics">
+        <h2>Topics of Interest</h2>
+        <p>
+          Topics of interest include, but are not limited to:
+        </p>
+        <ul class="topics">
+          <li>Semantics of Information and task-/goal-oriented communications</li>
+          <li>Information-theoretic limits and interpretations of Age of Information and Semantics of Information</li>
+          <li>Source and channel coding for Age of Information and semantic communications</li>
+          <li>Random access and gossiping protocols for Age of Information and semantic communications</li>
+          <li>Freshness and semantics of information in real-time learning, estimation, computation, and control</li>
+          <li>Networking aspects and protocols for Age of Information and semantic communications</li>
+          <li>Resource allocation and management for Age of Information and semantic communications</li>
+          <li>Modeling and performance analysis for Age of Information and semantic communications</li>
+          <li>ML/AI techniques for semantic and task-/goal-oriented communications</li>
+          <li>Generative AI, foundation models, and networked LLMs for semantic and goal-oriented communications</li>
+          <li>Freshness, information accuracy, and misinformation dynamics in timeliness-aware gossip networks</li>
+          <li>Age of Information, semantic accuracy, and strategic information disclosure in networked systems</li>
+        </ul>
+      </section>
+      <section id="chairs">
+        <h2>Workshop Chairs</h2>
+        <ul class="chairs">
+          <li>
+            <strong><a href="https://pappas-nikolaos.github.io/">Nikolaos Pappas</a></strong><br>
+            Department of Computer and Information Science,
+            Linköping University, Sweden
+          </li>
+          <li>
+            <strong><a href="https://bastopcu.bilkent.edu.tr/">Melih Bastopcu</a></strong><br>
+            Department of Electrical and Electronics Engineering,
+            Bilkent University, Türkiye
+          </li>
+          <li>
+            <strong><a href="https://ece.umd.edu/clark/faculty/389/Anthony-Ephremides">Anthony Ephremides</a></strong><br>
+            Electrical Engineering Department and Institute for Systems Research,
+            University of Maryland, College Park, USA
+          </li>
+        </ul>
+      </section>
+      <section id="program">
+        <h2>Program of the Workshop</h2>
+        <div class="program-placeholder">
+          <p>
+            The workshop is planned as a full-day event and will include contributed paper
+            presentations. A keynote/invited talk is also planned.
+          </p>
+          <p>
+            The detailed technical program will be announced after the paper review process.
+          </p>
+        </div>
+      </section>
+      <section id="dates">
+        <h2>Important Dates</h2>
+        <ul class="dates">
+          <li>
+            <strong>Workshop Paper Submission Deadline</strong>
+            <span>August 31, 2026</span>
+          </li>
+          <li>
+            <strong>Workshop Camera-Ready Deadline</strong>
+            <span>September 30, 2026</span>
+          </li>
+          <li>
+            <strong>Workshop Event</strong>
+            <span>November 26, 2026</span>
+          </li>
+        </ul>
+        <p class="small-note">
+          Dates will be aligned with the official ACM MobiHoc 2026 publication schedule.
+        </p>
+      </section>
+      <section id="submission">
+        <h2>Submission Guidelines</h2>
+        <p>
+          Submission guidelines are provided by the ACM MobiHoc 2026 organizers.
+          Authors should follow the official ACM MobiHoc 2026 workshop formatting,
+          submission, and publication instructions once they become available.
+        </p>
+        <p>
+          Information about paper length, formatting requirements, and the submission system
+          will be added here when confirmed.
+        </p>
+      </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>
+          For questions about the workshop, please contact the workshop chairs.
+        </p>
+        <p>
+          <strong>Webmaster:</strong> Nikolaos Pappas.
+        </p>
+      </section>
+    </main>
     <footer>
-        <small><em>Webmaster: Jiping Luo, Department of Computer and Information Science, Linköping University, Sweden</em></small>
+      Beyond Age of Information: Semantics and Goal-oriented Communication Workshop<br>
+      ACM MobiHoc 2026, Tokyo, Japan
     </footer>
+  </div>
 </body>
 </html>
